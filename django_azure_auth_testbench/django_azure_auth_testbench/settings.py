@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "azure_auth",
+    "debug_toolbar",
     "main",
 ]
 
@@ -46,6 +47,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
@@ -142,3 +144,7 @@ LOGIN_URL = "/azure_auth/login"
 LOGIN_REDIRECT_URL = "/"  # Or any other endpoint
 
 AUTH_USER_MODEL = "main.User"
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]

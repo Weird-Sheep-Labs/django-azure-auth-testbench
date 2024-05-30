@@ -1,9 +1,12 @@
-<div>
-    <span>{{request.user}}</span>
-    {% if request.user.is_authenticated %}
-        <a href={% url "azure_auth:logout" %}>Logout</a>
-    {% else %}
-        <a href={% url "azure_auth:login" %}>Login</a>
-    {% endif %}
-    <a href={% url "protected" %}>Protected</a>
-</div>
+<body>
+    <div>
+        <span>{{ request.user }}</span>
+        {% if request.user.is_authenticated %}
+            <a href={% url "azure_auth:logout" %}>Logout</a>
+        {% else %}
+            <a href={% url "azure_auth:login" %}>Login</a>
+        {% endif %}
+        <a href={% url "protected" %}>Protected</a>
+        <a href="/admin">Admin</a>
+    </div>
+</body>

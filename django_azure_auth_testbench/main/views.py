@@ -1,5 +1,6 @@
+import datetime
+
 from azure_auth.decorators import azure_auth_required
-from django.http import HttpResponse
 from django.shortcuts import render
 
 
@@ -9,4 +10,9 @@ def home(request):
 
 @azure_auth_required
 def protected(request):
-    return HttpResponse("Protected")
+    token_expiry = datetime.datetime.fromtimestamp(
+        request.session["id_token_claims"]["exp"]
+    )
+    return render(
+        request, "main/protected.html", context={"token_expiry": token_expiry}
+    )

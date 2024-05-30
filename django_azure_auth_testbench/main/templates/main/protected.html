@@ -1,0 +1,11 @@
+<body>
+    <div>
+        Protected
+    </div>
+    <div>
+        <a href="{% url "home" %}">Home</a>
+    </div>
+    <div>
+        Token expiry: <span>{{ token_expiry|timeuntil }}</span>
+    </div>
+</body>
